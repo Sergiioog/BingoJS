@@ -164,9 +164,65 @@ main {
 	max-width: 70%;
 	height: 100%;
 	display: flex;
+	margin: auto;
+	flex-direction: column;
+}
+#bolas {
+	height: 25%;
+	width: 700px;
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2vh;
+	background: rgba( 58, 55, 55, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
+    backdrop-filter: blur( 2px );
+    border: 1px solid #ffffff2e;
+    color: rgb(0, 0, 0);
+}
+#bolasSacadas {
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: auto;
+	height: 100%;
+	width: 80%;
 }
-
+#tablero {
+	height: 100%;
+	width: 500px;
+	background-color: azure;
+	margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#bolaActual {
+	background-color: aquamarine;
+	height: 100%;
+	width: 200px;
+	margin-left: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#divBoton {
+	background-color: red;
+	margin-top: 20px;
+}
+button:hover {
+	cursor: pointer;
+}
+.divCartones {
+	background: rgba( 58, 55, 55, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
+    backdrop-filter: blur( 2px );
+    border: 1px solid #ffffff2e;
+	margin: auto;
+	height: 100%;
+	width: 700px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
 /*--------MAIN---------*/

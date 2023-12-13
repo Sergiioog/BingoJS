@@ -35,9 +35,96 @@
             </div>
         </header>
         <main>
-           <div>
-
+           <div id="bolas">
+                <div id="bolasSacadas">
+                    <div id="tablero">
+                        <table>
+                            <tr>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                            </tr>
+                            <tr>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                            </tr>
+                            <tr>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                                <th>hola</th>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div id="bolaActual">
+                        <p>asd</p>
+                    </div>
+                </div>
+                <div id="divBoton">
+                    <button onclick="creaCarton()">COMPRAR CARTÓN</button>
+                    <button onclick="eliminaCarton()">DESHACER COMPRA</button>
+                </div>
+               
            </div>
+           <div class="divCartones">
+           
+           </div>
+          
+           
+           
         </main>
+        <script>
+            /*Sección de constantes*/
+            const divCartones = document.querySelector('.divCartones');
+
+            /*Seccion de contadores*/
+            let contadorCartones = 0;
+
+            /*Función que crea los cartones*/
+            function creaCarton() {
+                contadorCartones++;
+                if(contadorCartones > 0 && contadorCartones < 5) {
+                    var carton = document.createElement('div'); /*Crea un elemento div y lo asigna a la variable carton*/
+                    carton.innerHTML = 'Hola soy el carton' /*En su innerHTML le metemos lo que queramos*/
+                    divCartones.appendChild(carton); /*Asignamos carton al div de divCartones*/
+                }else {
+                    console.error("Ya has comprado el numero maximo de cartones");
+                }
+                
+            }
+
+            /*Función que elimina los cartones*/
+            function eliminaCarton() {
+                if (contadorCartones != 0) { //Si hay al menos un carton
+                    divCartones.removeChild(divCartones.lastChild); //elimina el ultimo carton creado
+                    contadorCartones--; //"resetea" el contador
+                } else {
+                    console.error("Compra primero un cartón para poder eliminarlo")
+                }
+            }
+
+         
+            
+        </script>
+
     </body>
 </html>
