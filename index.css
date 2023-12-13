@@ -1,0 +1,172 @@
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+	padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/*--------BODY-----------*/
+
+body {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	background-image: url('assets/navidad.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  }
+
+/*--------BODY-----------*/
+
+
+/*--------HEADER---------*/
+header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba( 58, 55, 55, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
+    backdrop-filter: blur( 2px );
+    border: 1px solid #ffffff2e;
+    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+	font-family: fantasy;
+}
+#logo {
+    display:none;
+}
+#redessociales {
+    display: none;
+}
+
+@media screen and (min-width:425px) {
+    header {
+        font-size:1rem;
+    }
+    .logoDiv, .tituloDiv, .socialDiv  {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #redessociales{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    svg {
+        color: white;
+        margin-left: 5px;
+        margin-right: 5px;
+        height: 28px;
+        width: 28px;
+    }
+    #logo {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    #logo img {
+        max-height: 95%;
+        max-width: 95%;
+    } 
+}
+
+
+
+/*--------HEADER---------*/
+/*--------MAIN---------*/
+main {
+	max-width: 70%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+/*--------MAIN---------*/
