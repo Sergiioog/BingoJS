@@ -79,6 +79,10 @@ select {
 }
 
 /*--------BODY-----------*/
+*{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
 
 body {
 	height: 100%;
@@ -220,9 +224,62 @@ button:hover {
     border: 1px solid #ffffff2e;
 	margin: auto;
 	height: 100%;
-	width: 700px;
+	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 20px;
 }
 /*--------MAIN---------*/
+/*-------ELEMENTOS DINAMICOS-------*/
+.divCarton {
+	width: 60vw;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	
+}
+.carton {
+    background-color: antiquewhite;
+    height: 300px;
+    width: 600px;
+    margin-top: 30px;
+	border: 2px solid black;
+	border-radius: 10px;	
+	overflow-y: hidden;
+}
+
+#fila1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Cambiado a un valor en píxeles */
+    width: 100%;
+}
+
+#fila2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Cambiado a un valor en píxeles */
+    width: 100%;
+}
+
+#fila3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Cambiado a un valor en píxeles */
+    width: 100%;
+}
+.recuadro {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid black;
+	font-size: 40px;
+	font-weight: bold;
+
+}

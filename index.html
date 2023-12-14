@@ -38,45 +38,10 @@
            <div id="bolas">
                 <div id="bolasSacadas">
                     <div id="tablero">
-                        <table>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            
-                        </table>
+                    
                     </div>
                     <div id="bolaActual">
-                        <p>asd</p>
+                        <p></p>
                     </div>
                 </div>
                 <div id="divBoton">
@@ -95,6 +60,9 @@
         <script>
             /*Sección de constantes*/
             const divCartones = document.querySelector('.divCartones');
+            const bolaActual = document.querySelector('#bolaActual');
+
+           
 
             /*Seccion de contadores*/
             let contadorCartones = 0;
@@ -102,11 +70,77 @@
             /*Función que crea los cartones*/
             function creaCarton() {
                 contadorCartones++;
-                if(contadorCartones > 0 && contadorCartones < 5) {
+                if (contadorCartones > 0 && contadorCartones < 5) {
                     var carton = document.createElement('div'); /*Crea un elemento div y lo asigna a la variable carton*/
-                    carton.innerHTML = 'Hola soy el carton' /*En su innerHTML le metemos lo que queramos*/
-                    divCartones.appendChild(carton); /*Asignamos carton al div de divCartones*/
-                }else {
+                    carton.innerHTML = `
+                        <div class="divCarton">
+                            <div class="carton">
+                                <div id="fila1">
+                                        <div class="recuadro" id="pos1">1</div>
+                                        <div class="recuadro" ></div>
+                                        <div class="recuadro" id="pos4">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos7">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos10">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos13">1</div>
+                                </div>
+                                <div id="fila2">
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos3">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos6">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos9">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos12">1</div>
+                                        <div class="recuadro"></div>
+                                </div>
+                                <div id="fila3">
+                                        <div class="recuadro" id="pos2">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro"  id="pos5">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro"  id="pos8">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro"  id="pos11">1</div>
+                                        <div class="recuadro"></div>
+                                        <div class="recuadro" id="pos14">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            
+                
+                    /*Le damos unos rangos de valores aleatorios a cada casilla*/
+                    carton.querySelector('#pos1').textContent = Math.floor(Math.random() * 10);
+                    carton.querySelector('#pos2').textContent = Math.floor(Math.random() * 10);
+                    
+                    carton.querySelector('#pos3').textContent = Math.floor(Math.random() * 11) + 10;
+                    
+                    carton.querySelector('#pos4').textContent = Math.floor(Math.random() * 11) + 20;
+                    carton.querySelector('#pos5').textContent = Math.floor(Math.random() * 11) + 20;
+                    
+                    carton.querySelector('#pos6').textContent = Math.floor(Math.random() * 11) + 30;
+
+                    carton.querySelector('#pos7').textContent = Math.floor(Math.random() * 11) + 40;
+                    carton.querySelector('#pos8').textContent = Math.floor(Math.random() * 11) + 40;
+
+                    carton.querySelector('#pos9').textContent = Math.floor(Math.random() * 11) + 50;
+                    
+                    carton.querySelector('#pos10').textContent = Math.floor(Math.random() * 11) + 60;
+                    carton.querySelector('#pos11').textContent = Math.floor(Math.random() * 11) + 60;
+
+                    carton.querySelector('#pos12').textContent = Math.floor(Math.random() * 11) + 70;
+
+                    carton.querySelector('#pos13').textContent = Math.floor(Math.random() * 11) + 80;
+                    carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 11) + 80;
+
+                    divCartones.appendChild(carton); 
+
+                    
+                } else {
                     console.error("Ya has comprado el numero maximo de cartones");
                 }
                 
@@ -122,8 +156,36 @@
                 }
             }
 
-         
+            /*Función que saca las bolas*/
+            function numero() {
+                // Inicializamos el número antes del setInterval para evitar repeticiones inmediatas
+                let numeroRandom = generarNumeroUnico(80, 90, []);
             
+                setInterval(function() {
+                    // Generamos un nuevo número aleatorio único en cada intervalo
+                    numeroRandom = generarNumeroUnico(80, 90, []);
+                    bolaActual.textContent = numeroRandom;
+                }, 3000);
+            }
+            
+            // Función para generar un número único en un rango
+            function generarNumeroUnico(min, max, numerosUsados) {
+                let numero;
+                do {
+                    numero = Math.floor(Math.random() * (max - min + 1)) + min;
+                } while (numerosUsados.includes(numero));
+                numerosUsados.push(numero);
+                return numero;
+            }
+            
+            // Llamamos a la función numero para que empiece a generar números aleatorios
+            numero();
+
+
+              
+                
+            
+                
         </script>
 
     </body>
