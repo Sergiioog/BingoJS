@@ -250,7 +250,6 @@ button:hover {
 }
 
 #fila1 {
-    background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,5 +279,7 @@ button:hover {
 	justify-content: center;
 	align-items: center;
 	border: 2px solid black;
+	font-size: 40px;
+	font-weight: bold;
 
 }
