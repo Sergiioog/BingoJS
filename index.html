@@ -38,42 +38,7 @@
            <div id="bolas">
                 <div id="bolasSacadas">
                     <div id="tablero">
-                        <table>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            <tr>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                                <th>hola</th>
-                            </tr>
-                            
-                        </table>
+                    
                     </div>
                     <div id="bolaActual">
                         <p>asd</p>
@@ -104,7 +69,47 @@
                 contadorCartones++;
                 if(contadorCartones > 0 && contadorCartones < 5) {
                     var carton = document.createElement('div'); /*Crea un elemento div y lo asigna a la variable carton*/
-                    carton.innerHTML = 'Hola soy el carton' /*En su innerHTML le metemos lo que queramos*/
+                    carton.innerHTML = `
+                        <div class="divCarton">
+                            <div class="carton">
+                                <div id="fila1">
+                                    <div class="recuadro">1</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">3</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">5</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">7</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">9</div>
+                                </div>
+                                <div id="fila2">
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">2</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">4</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">6</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">8</div>
+                                    <div class="recuadro"></div>
+                                </div>
+                                <div id="fila3">
+                                    <div class="recuadro">1</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">3</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">5</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">7</div>
+                                    <div class="recuadro"></div>
+                                    <div class="recuadro">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                    ` /*En su innerHTML le metemos lo que queramos*/
                     divCartones.appendChild(carton); /*Asignamos carton al div de divCartones*/
                 }else {
                     console.error("Ya has comprado el numero maximo de cartones");
