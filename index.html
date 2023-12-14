@@ -41,7 +41,7 @@
                     
                     </div>
                     <div id="bolaActual">
-                        <p>asd</p>
+                        <p></p>
                     </div>
                 </div>
                 <div id="divBoton">
@@ -60,6 +60,9 @@
         <script>
             /*Sección de constantes*/
             const divCartones = document.querySelector('.divCartones');
+            const bolaActual = document.querySelector('#bolaActual');
+
+           
 
             /*Seccion de contadores*/
             let contadorCartones = 0;
@@ -135,6 +138,8 @@
                     carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 11) + 80;
 
                     divCartones.appendChild(carton); 
+
+                    
                 } else {
                     console.error("Ya has comprado el numero maximo de cartones");
                 }
@@ -150,6 +155,31 @@
                     console.error("Compra primero un cartón para poder eliminarlo")
                 }
             }
+
+            /*Función que saca las bolas*/
+            function numero() {
+                // Inicializamos el número antes del setInterval para evitar repeticiones inmediatas
+                let numeroRandom = generarNumeroUnico(80, 90, []);
+            
+                setInterval(function() {
+                    // Generamos un nuevo número aleatorio único en cada intervalo
+                    numeroRandom = generarNumeroUnico(80, 90, []);
+                    bolaActual.textContent = numeroRandom;
+                }, 3000);
+            }
+            
+            // Función para generar un número único en un rango
+            function generarNumeroUnico(min, max, numerosUsados) {
+                let numero;
+                do {
+                    numero = Math.floor(Math.random() * (max - min + 1)) + min;
+                } while (numerosUsados.includes(numero));
+                numerosUsados.push(numero);
+                return numero;
+            }
+            
+            // Llamamos a la función numero para que empiece a generar números aleatorios
+            numero();
 
 
               
