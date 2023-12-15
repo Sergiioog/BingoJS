@@ -186,10 +186,40 @@ main {
     color: rgb(0, 0, 0); 
 }
 #bolasSacadas {
-	background-color: red;
+	
 	height: 100%;
 	width: 55%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+#tablero {
+	background-color: whitesmoke;
+	height: 96%;
+	width: 99%;
+	border: 3px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex-wrap: wrap; /* Cambiado a nowrap para que no haya wrap */
+}
+
+.cuadrado {
+	border: 2px solid black;
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Añadido estilo para los párrafos dentro de .cuadrado */
+.cuadrado p {
+	margin: 0; /* Añadido para eliminar el margen por defecto del párrafo */
+}
+
 
 #bolaActual {
 	height: 100%;
@@ -206,7 +236,18 @@ main {
 }
 #bolita {
 	background-color: red;
-	
+}
+#divBoton {
+	margin-top: 40px;
+	height: 80px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+button {
+	margin: 5px;
 }
 
 .divCartones {
