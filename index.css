@@ -172,81 +172,51 @@ main {
 	flex-direction: column;
 }
 #bolas {
-	height: 40%;
-	width: 700px;
+	height: 50vh;
+	width: 100vw;
+	background-color: blue;
 	display: flex;
 	margin: auto;
-	flex-direction: column;
 	align-items: center;
 	margin-top: 2vh;
 	background: rgba( 58, 55, 55, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
     backdrop-filter: blur( 2px );
-    border: 1px solid #ffffff2e;
-    color: rgb(0, 0, 0);
+    border: 1px solid #ffffff2e; 
+    color: rgb(0, 0, 0); 
 }
 #bolasSacadas {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	width: 80%;
-}
-
-.divCarton {
 	background-color: red;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	height: 100%;
+	width: 55%;
 }
-.tablerof {
-	width: 100%;
-	height: 20px;
-	display: flex;
-	justify-content: center;
-	
 
-}
-.tablerof div {
-	margin-left: 20px;
-}
-#tablero {
-	height: 100%;
-	width: 500px;
-	background-color: azure;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 #bolaActual {
-	background-color: aquamarine;
 	height: 100%;
-	width: 200px;
-	margin-left: 10px;
+	width: 15%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-#divBoton {
-	margin-top: 20px;
-	height: 50px;
+#bola {
+	background-color: rgb(121, 86, 86);
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
 }
-button {
-	height: 100%;
-	margin-left: 5px;
-	margin-right: 5px;
+#bolita {
+	background-color: red;
+	
 }
-button:hover {
-	cursor: pointer;
-}
+
 .divCartones {
 	background: rgba( 58, 55, 55, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
     backdrop-filter: blur( 2px );
-    border: 1px solid #ffffff2e;
+    border: 1px solid #ffffff2e; 
 	margin: auto;
 	height: 100%;
-	width: 90%;
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 20px;
