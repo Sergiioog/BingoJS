@@ -4,6 +4,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	
 }
 
 /* Remove default padding */
@@ -99,7 +100,9 @@ body {
 
 /*--------BODY-----------*/
 
-
+p {
+	font-size: 15px;
+}
 /*--------HEADER---------*/
 header {
     height: 10vh;
@@ -194,7 +197,7 @@ main {
 	align-items: center;
 }
 #tablero {
-	background-color: whitesmoke;
+	background-color: transparent;
 	height: 96%;
 	width: 99%;
 	border: 3px solid black;
@@ -213,6 +216,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: white;
 }
 
 /* Añadido estilo para los párrafos dentro de .cuadrado */
@@ -249,7 +253,9 @@ main {
 button {
 	margin: 5px;
 }
-
+button:hover {
+	cursor: pointer;
+}
 .divCartones {
 	background: rgba( 58, 55, 55, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
@@ -284,6 +290,7 @@ button {
 	border: 2px solid black;
 	border-radius: 10px;	
 	overflow-y: hidden;
+	
 }
 
 #fila1 {
