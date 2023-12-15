@@ -4,6 +4,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	
 }
 
 /* Remove default padding */
@@ -99,7 +100,9 @@ body {
 
 /*--------BODY-----------*/
 
-
+p {
+	font-size: 15px;
+}
 /*--------HEADER---------*/
 header {
     height: 10vh;
@@ -186,10 +189,41 @@ main {
     color: rgb(0, 0, 0); 
 }
 #bolasSacadas {
-	background-color: red;
+	
 	height: 100%;
 	width: 55%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+#tablero {
+	background-color: transparent;
+	height: 96%;
+	width: 99%;
+	border: 3px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex-wrap: wrap; /* Cambiado a nowrap para que no haya wrap */
+}
+
+.cuadrado {
+	border: 2px solid black;
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+}
+
+/* Añadido estilo para los párrafos dentro de .cuadrado */
+.cuadrado p {
+	margin: 0; /* Añadido para eliminar el margen por defecto del párrafo */
+}
+
 
 #bolaActual {
 	height: 100%;
@@ -206,9 +240,22 @@ main {
 }
 #bolita {
 	background-color: red;
-	
 }
-
+#divBoton {
+	margin-top: 40px;
+	height: 80px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+button {
+	margin: 5px;
+}
+button:hover {
+	cursor: pointer;
+}
 .divCartones {
 	background: rgba( 58, 55, 55, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(165, 165, 168, 0.37);
@@ -243,6 +290,7 @@ main {
 	border: 2px solid black;
 	border-radius: 10px;	
 	overflow-y: hidden;
+	
 }
 
 #fila1 {
