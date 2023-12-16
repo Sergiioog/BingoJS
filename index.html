@@ -133,9 +133,9 @@
                     
                     
                 </div>
-                <div id="bolaActual">
+                <div id="bolaActual"> <!--Darle estilos-->
                     <div id="bola">
-                        <p id="bolita"></p>
+                        <p id="bolita">0</p>
                     </div>
                 </div>
                
@@ -155,10 +155,7 @@
             /*Sección de constantes*/
             const divCartones = document.querySelector('.divCartones');
             const bolaActual = document.querySelector('#bolaActual');
-            const bolita =   document.getElementById("bola");
             
-
-            /*Seccion de contadores*/
             let contadorCartones = 0;
 
             /*Función que crea los cartones*/
@@ -232,25 +229,91 @@
                     carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 10) + 80;
 
                     divCartones.appendChild(carton); 
-
                     
+                    //si se aprieta el boton de deshacer compra que se pare el contador
+                    setTimeout(function() {
+                        sacaBolas();
+                    },1000)
+                    
+
                 } else {
                     console.error("Ya has comprado el numero maximo de cartones");
                 }
+                
                 
             }
 
             /*Función que elimina los cartones*/
             function eliminaCarton() {
-                if (contadorCartones != 0) { //Si hay al menos un carton
-                    divCartones.removeChild(divCartones.lastChild); //elimina el ultimo carton creado
-                    contadorCartones--; //"resetea" el contador
+                if (contadorCartones !== 0) { // Si hay al menos un cartón
+                    // Elimina el último cartón creado
+                    divCartones.removeChild(divCartones.lastChild);
+                    contadorCartones--; // "Resetea" el contador
+            
+                    // Resetear el color de las casillas del tablero
+                    for (let i = 0; i <= 90; i++) {
+                        let divNumero = document.getElementById(i.toString());
+                        if (divNumero) {
+                            divNumero.style.backgroundColor = 'white';
+                        }
+                    }
                 } else {
-                    console.error("Compra primero un cartón para poder eliminarlo")
+                    console.error("Compra primero un cartón para poder eliminarlo");
                 }
             }
 
+            /*Funcion que saca las bolas*/
+
+            function sacaBolas() {
+                let numerosRepetidos = [];
+                let contadorBolas = 0;
+            
+                function generarNumero() {
+                    let numeroRandom;
+                    do {
+                        numeroRandom = Math.floor(Math.random() * 91);
+                        if (numerosRepetidos.includes(numeroRandom)) {
+                            console.error(`${numeroRandom} repetido`)
+                        }
+                    } while (numerosRepetidos.includes(numeroRandom));
+            
+                    numerosRepetidos.push(numeroRandom);
+                    contadorBolas++;
+                    console.log(numeroRandom);
+                    asignaNumero(numeroRandom);
+            
+                    if (contadorBolas < 91) {
+                        setTimeout(generarNumero, 2000); // Espera 2 segundos antes de generar el próximo número
+                    }
+                }
+            
+                // Iniciar el proceso
+                generarNumero();
+            }
+            
+            
+            function asignaNumero(numero) {
+                console.log("Número asignado:", numero);
+            
+                let bolita = document.querySelector('#bolita');
+                let divCasilla = document.getElementById(numero.toString());
+                if (divCasilla) {
+                    bolita.innerText = numero;
+                    divCasilla.innerHTML = `<p>${numero}</p>`;
+                    divCasilla.style.backgroundColor = 'green';
+                }
+            }
+            
+            
+
+
+
+
+
+
+
             /*Función que saca las bolas*/
+            /*
             function numero() {
                 // Inicializamos el número antes del setInterval para evitar repeticiones inmediatas
                 let numeroRandom = generarNumeroUnico(0, 90, []);
@@ -263,40 +326,52 @@
                 }, 1800);
             }
             
+
+
             // Función para generar un número único en un rango
             function generarNumeroUnico(min, max, numerosUsados, contadorCartones) {
                 let numero;
+                let numerosRepes = [];
+
                 do {
                     numero = Math.floor(Math.random() * (max - min + 1)) + min;
+                    console.log(numero)
+                    numerosRepes.push(numero);
+                    let divNumero = document.getElementById(numero.toString());
+                    if (divNumero) {
+                        divNumero.style.backgroundColor = 'green';
+                    }
+                    bolita.innerText += numero + "\n";
+                } while(numerosRepes!= numero);
+                    
+                */
+                
+                
+                /*do {
+
+                    numero = Math.floor(Math.random() * (max - min + 1)) + min;
+                    for (let i = 0; i < numerosRepes.length; i++) {
+                        if (numerosRepes[i] == numero) {
+                            numerosRepes.push(numero);
+                        }
+                        generarNumeroUnico(min, max, numerosUsados, contadorCartones);
+                    }
+                    
                 } while (numerosUsados.includes(numero));
 
-                numerosUsados.push(numero);
-
-                for(let i = 0; i < contadorCartones; i++) {
-                    for (let j = 0; j < 14; j ++) {
-                        const casillaNumero = document.getElementById(`carton${i}_pos${j}`);
-                         if (casilla && parseInt(casilla.textContent) === numero) {
-                            casilla.style.backgroundColor = 'green';
-                        }
-                    }
-                }
+                numerosUsados.push(numero);*/
 
                 
+                /*numerosRepes.push(numero);
                 let divNumero = document.getElementById(numero.toString());
-
                 if (divNumero) {
                     divNumero.style.backgroundColor = 'green';
                 }
-                
-
-
-
-
-
                 bolita.innerText += numero + "\n";
                 console.log(numero);
+              
                 return numero;
-            }
+            }*/
             
             
 
@@ -306,8 +381,7 @@
 
 
             // Llamamos a la función numero para que empiece a generar números aleatorios
-            
-            numero();
+
         
 
               
