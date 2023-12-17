@@ -225,7 +225,6 @@ main {
 }
 
 #bolaActual {
-	background-color: aqua;
 	height: 90%;
 	width: 10%;
 	display: flex;
@@ -235,8 +234,8 @@ main {
 }
 #bola {
 	background-color: aliceblue;
-	width: 60px;
-	height: 60px;
+	width: 80px;
+	height: 80px;
 	border-radius: 100%;
 	display: flex;
 	justify-content: center;
@@ -244,7 +243,7 @@ main {
 	border: 2px solid black;
 }
 #bolita {
-	font-size: 25px;
+	font-size: 45px;
 	font-weight: bold;
 }
 

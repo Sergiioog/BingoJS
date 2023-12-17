@@ -141,13 +141,16 @@
                
                
            </div>
+           <div id="bingo" style="display: none;">
+            <p>FELICIDADES HAS HECHO BINGO</p>
+            </div>
            <div class="divCartones">
                 <div id="divBoton">
                     <button onclick="creaCarton()">COMPRAR CARTÓN</button>
                     <button onclick="eliminaCarton()">DESHACER COMPRA</button>
                 </div>  
            </div>
-          
+     
            
            
         </main>
@@ -155,7 +158,8 @@
             /*Sección de constantes*/
             const divCartones = document.querySelector('.divCartones');
             const bolaActual = document.querySelector('#bolaActual');
-            
+            let bingo = document.querySelector('#bingo');
+            let arrayNumCarton = [];
             let contadorCartones = 0;
 
             /*Función que crea los cartones*/
@@ -202,37 +206,39 @@
                             </div>
                         </div>
                     `;
-            
-                
+                        
+                   
+
+                        
                     /*Le damos unos rangos de valores aleatorios a cada casilla*/
-                    carton.querySelector('#pos1').textContent = Math.floor(Math.random() * 10);
-                    carton.querySelector('#pos2').textContent = Math.floor(Math.random() * 10);
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos1').textContent = Math.floor(Math.random() * 10)));
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos2').textContent = Math.floor(Math.random() * 10)));
                     
-                    carton.querySelector('#pos3').textContent = Math.floor(Math.random() * 10) + 10;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos3').textContent = Math.floor(Math.random() * 10) + 10));
                     
-                    carton.querySelector('#pos4').textContent = Math.floor(Math.random() * 10) + 20;
-                    carton.querySelector('#pos5').textContent = Math.floor(Math.random() * 10) + 20;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos4').textContent = Math.floor(Math.random() * 10) + 20));
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos5').textContent = Math.floor(Math.random() * 10) + 20));
                     
-                    carton.querySelector('#pos6').textContent = Math.floor(Math.random() * 10) + 30;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos6').textContent = Math.floor(Math.random() * 10) + 30));
 
-                    carton.querySelector('#pos7').textContent = Math.floor(Math.random() * 10) + 40;
-                    carton.querySelector('#pos8').textContent = Math.floor(Math.random() * 10) + 40;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos7').textContent = Math.floor(Math.random() * 10) + 40));
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos8').textContent = Math.floor(Math.random() * 10) + 40));
 
-                    carton.querySelector('#pos9').textContent = Math.floor(Math.random() * 10) + 50;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos9').textContent = Math.floor(Math.random() * 10) + 50));
                     
-                    carton.querySelector('#pos10').textContent = Math.floor(Math.random() * 10) + 60;
-                    carton.querySelector('#pos11').textContent = Math.floor(Math.random() * 10) + 60;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos10').textContent = Math.floor(Math.random() * 10) + 60));
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos11').textContent = Math.floor(Math.random() * 10) + 60));
 
-                    carton.querySelector('#pos12').textContent = Math.floor(Math.random() * 10) + 70;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos12').textContent = Math.floor(Math.random() * 10) + 70));
 
-                    carton.querySelector('#pos13').textContent = Math.floor(Math.random() * 10) + 80;
-                    carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 10) + 80;
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos13').textContent = Math.floor(Math.random() * 10) + 80));
+                    arrayNumCarton.push(parseInt(carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 10) + 80));
 
                     divCartones.appendChild(carton); 
-                    
+                    console.log(`Numero del carton ${arrayNumCarton}`);
                     //si se aprieta el boton de deshacer compra que se pare el contador
                     setTimeout(function() {
-                        sacaBolas();
+                        sacaBolas(arrayNumCarton);
                     },1000)
                     
 
@@ -250,7 +256,7 @@
                     divCartones.removeChild(divCartones.lastChild);
                     contadorCartones--; // "Resetea" el contador
             
-                    // Resetear el color de las casillas del tablero
+                    // Resetear el color de las casillas del tablero //PARAR EL RELOJ
                     for (let i = 0; i <= 90; i++) {
                         let divNumero = document.getElementById(i.toString());
                         if (divNumero) {
@@ -263,30 +269,59 @@
             }
 
             /*Funcion que saca las bolas*/
-
-            function sacaBolas() {
+            function mostrarBingo() {
+                bingo.style.display = 'block';
+            }
+            function sacaBolas(arrayNumCarton) {
                 let numerosRepetidos = [];
                 let contadorBolas = 0;
+                let casillaMarcada = 0; //contador de casillas para ver si han salido todas y decir bingo
+
             
                 function generarNumero() {
                     let numeroRandom;
+                    
+
                     do {
                         numeroRandom = Math.floor(Math.random() * 91);
+                
                         if (numerosRepetidos.includes(numeroRandom)) {
                             console.error(`${numeroRandom} repetido`)
                         }
+                
+                        let casillaMarcada = 0; // Reiniciar el contador en cada iteración
+                
+                        for (let i = 0; i < arrayNumCarton.length; i++) {
+                            if (numeroRandom === arrayNumCarton[i]) {
+                                let divCasilla = document.getElementById(`pos${i + 1}`);
+                                if (divCasilla) {
+                                    divCasilla.style.backgroundColor = 'green';
+                                    casillaMarcada++;
+                                }
+                            }
+                        }
+                        // Verificar después de recorrer todas las casillas
+                        if (casillaMarcada === arrayNumCarton.length) {
+                            console.log("hooallalsdlaldlasldslsaldlals")
+                            mostrarBingo();
+                        }
+                
+                        
+                
                     } while (numerosRepetidos.includes(numeroRandom));
-            
+                
                     numerosRepetidos.push(numeroRandom);
                     contadorBolas++;
                     console.log(numeroRandom);
                     asignaNumero(numeroRandom);
-            
+                
                     if (contadorBolas < 91) {
                         setTimeout(generarNumero, 2000); // Espera 2 segundos antes de generar el próximo número
                     }
                 }
             
+               
+                
                 // Iniciar el proceso
                 generarNumero();
             }
