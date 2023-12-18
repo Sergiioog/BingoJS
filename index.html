@@ -16,19 +16,19 @@
             </div>
             <div id="redessociales" >
                 <a href="https://github.com/Sergiioog" target="_blank" rel="noopener noreferrer" class="mr-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
                 </a>
             
                 <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="mr-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-linkedin" viewBox="0 0 16 16">
                         <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
                     </svg>
                 </a>
             
                 <a href="https://twitter.com/home" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-twitter-x" viewBox="0 0 16 16">
                         <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
                     </svg>
                 </a>
@@ -37,7 +37,7 @@
         <main>
            <div id="bolas">
                 <div id="bolasSacadas">
-                    <div id="tablero">
+                    <div id="tablero"> <!--Tablero que se va rellenando a medida que salgan los numeros-->
                         <div class="cuadrado" id="0"><p>0</p></div>
                         <div class="cuadrado" id="1"><p>1</p></div>
                         <div class="cuadrado" id="2"><p>2</p></div>
@@ -135,7 +135,7 @@
                 </div>
                 <div id="bolaActual"> <!--Darle estilos-->
                     <div id="bola">
-                        <p id="bolita">0</p>
+                        <p id="bolita"></p>
                     </div>
                 </div>
                
@@ -146,8 +146,8 @@
             </div>
            <div class="divCartones">
                 <div id="divBoton">
-                    <button onclick="creaCarton()">COMPRAR CARTÓN</button>
-                    <button onclick="eliminaCarton()">DESHACER COMPRA</button>
+                    <button onclick="creaCarton()">COMPRAR CARTÓN</button> <!--Boton para comprar el carton-->
+                    <button onclick="eliminaCarton()">DESHACER COMPRA</button> <!--Boton para eliminar el carton-->
                 </div>  
            </div>
      
@@ -156,16 +156,14 @@
         </main>
         <script>
             /*Sección de constantes*/
-            const divCartones = document.querySelector('.divCartones');
-            const bolaActual = document.querySelector('#bolaActual');
-            let bingo = document.querySelector('#bingo');
-            let arrayNumCarton = [];
+            const divCartones = document.querySelector('.divCartones'); //Div donde salen los cartones
+            let bingo = document.querySelector('#bingo'); //Pantalla de ganar bingo
+            let arrayNumCarton = []; 
             let contadorCartones = 0;
             
             /*Función que crea los cartones*/
             function creaCarton() {
-                contadorCartones++;
-                if (contadorCartones > 0 && contadorCartones < 5) {
+                if(contadorCartones < 1) { //Si no hay ningun carton que lo cree (no he podido hacer mas cartones funcionales a tiempo) 
                     var carton = document.createElement('div'); /*Crea un elemento div y lo asigna a la variable carton*/
                     carton.innerHTML = `
                         <div class="divCarton">
@@ -234,13 +232,12 @@
                     arrayNumCarton.push(parseInt(carton.querySelector('#pos13').textContent = Math.floor(Math.random() * 10) + 80));
                     arrayNumCarton.push(parseInt(carton.querySelector('#pos14').textContent = Math.floor(Math.random() * 10) + 80));
 
-                    divCartones.appendChild(carton); 
-                    console.log(`Numero del carton ${arrayNumCarton}`);
+                    divCartones.appendChild(carton); //Le añadimos los numeros al carton
                     //si se aprieta el boton de deshacer compra que se pare el contador
-                    setTimeout(function() {
+                    setTimeout(function() { //Time out para sacar las bolas con 1 s de retraso entre cada una
                         sacaBolas(arrayNumCarton);
                     },1000)
-
+                    contadorCartones++
                 } else {
                     console.error("Ya has comprado el numero maximo de cartones");
                 }
@@ -254,12 +251,12 @@
                     // Elimina el último cartón creado
                     divCartones.removeChild(divCartones.lastChild);
                     contadorCartones--; // "Resetea" el contador
-                    bolita.innerText = '';
-                    // Resetear el color de las casillas del tablero //PARAR EL RELOJ
-                    for (let i = 0; i <= 90; i++) {
+                    bolita.innerText = ''; //"Elimina el valor de la bola"
+                    // Resetear el color de las casillas del tablero 
+                    for (let i = 0; i <= 90; i++) { //Hasta 91 porque es el numero maximo de numeros
                         let divNumero = document.getElementById(i.toString());
                         if (divNumero) {
-                            divNumero.style.backgroundColor = 'white';
+                            divNumero.style.backgroundColor = 'white'; //Cambiamos los divs a blanco
                         }
                     }
 
@@ -274,26 +271,24 @@
                 let casillaMarcada = 0; // Reiniciar el contador en cada iteración
 
                 function generarNumero() {
-                    let numeroRandom;
+                    let numeroRandom; //Numer random de la bola
                     
     
                     do {
-                        numeroRandom = Math.floor(Math.random() * 91);
+                        numeroRandom = Math.floor(Math.random() * 91); //Hace un nuevo numero random siempre y cuando no se incluya en numeros Repetidos
             
-                        if (numerosRepetidos.includes(numeroRandom)) {
-                            console.error(`${numeroRandom} repetido`);
-                        }
+                       
         
-                        for (let i = 0; i < arrayNumCarton.length; i++) {
+                        for (let i = 0; i < arrayNumCarton.length; i++) { //Desde 0 hasta la longitud de los numeros contenidos del carton
                             if (numeroRandom === arrayNumCarton[i]) {
                                 let divCasilla = document.getElementById(`pos${i + 1}`);
                                 if (divCasilla) {
-                                    divCasilla.style.backgroundColor = 'green';
-                                    if(!numerosRepetidos.includes(numeroRandom)){
+                                    divCasilla.style.backgroundColor = 'green'; //Se cambia a color verde si acierta
+                                    if(!numerosRepetidos.includes(numeroRandom)){ //Su no incluye el numero random que suba el contador (para que si ej: sale el 27 y ya estaba en verde no repita y se cuente 2 veces)
                                         casillaMarcada++;
                                         console.log(`Valor de casilla: ${casillaMarcada}`);
-                                        if (casillaMarcada === 14 ) {
-                                            bingo.style.display = "block";
+                                        if (casillaMarcada === 14 ) { //Si se completan los 14 numeros
+                                            bingo.style.display = "block"; //que salga el cartel del bingo
                                         }
                                     }
                                   
@@ -307,7 +302,7 @@
 
                     
             
-                    numerosRepetidos.push(numeroRandom);
+                    numerosRepetidos.push(numeroRandom); //Meter el numero random en numeros Repetidos para que no vuelva a salir
                     contadorBolas++;
                     asignaNumero(numeroRandom);
             
@@ -322,14 +317,14 @@
             
             
             
-            function asignaNumero(numero) {
+            function asignaNumero(numero) { //Asignar el numero a la bolita
                 
                 let bolita = document.querySelector('#bolita');
                 let divCasilla = document.getElementById(numero.toString());
                 if (divCasilla) {
-                    bolita.innerText = numero;
-                    divCasilla.innerHTML = `<p>${numero}</p>`;
-                    divCasilla.style.backgroundColor = 'green';
+                    bolita.innerText = numero; //El texto de la bola
+                    divCasilla.innerHTML = `<p>${numero}</p>`; //Que vaya creando p con el valor del numero para que se vayan cambiando
+                    divCasilla.style.backgroundColor = 'green'; //que se vayan poniendo en verde a medida que salen
                 }
             }
            
