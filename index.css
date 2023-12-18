@@ -83,6 +83,7 @@ select {
 *{
 	overflow-x: hidden;
 	overflow-y: auto;
+	
 }
 
 body {
@@ -96,6 +97,7 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	
   }
 
 /*--------BODY-----------*/
@@ -115,8 +117,13 @@ header {
     backdrop-filter: blur( 2px );
     border: 1px solid #ffffff2e;
     color: rgb(0, 0, 0);
-    font-size: 0.8rem;
-	font-family: fantasy;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	letter-spacing: 1px;
+	color: rgb(218, 6, 6);
+	text-shadow: 2px 2px rgb(10, 96, 0);
+	border: 2px solid rgb(17, 145, 23);
+
+
 }
 #logo {
     display:none;
@@ -174,8 +181,11 @@ main {
 	margin: auto;
 	flex-direction: column;
 }
+
+	
+
 #bolas {
-	height: 50vh;
+	height: 100vh;
 	width: 100vw;
 	background-color: blue;
 	display: flex;
@@ -187,6 +197,17 @@ main {
     backdrop-filter: blur( 2px );
     border: 1px solid #ffffff2e; 
     color: rgb(0, 0, 0); 
+	
+}
+@media screen and (max-width: 849px) {
+		#bolas {
+			height: 60vh;
+			width: 100%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			
+		}
 }
 #bolasSacadas {
 	
@@ -196,6 +217,7 @@ main {
 	justify-content: center;
 	align-items: center;
 }
+
 #tablero {
 	background-color: transparent;
 	height: 96%;
@@ -230,7 +252,14 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-left: 2%;
 	
+	
+}
+@media screen and (max-width: 849px) {
+	#bolaActual {
+		width: auto;
+	}
 }
 #bola {
 	background-color: aliceblue;
@@ -242,11 +271,24 @@ main {
 	align-items: center;
 	border: 2px solid black;
 }
+@media screen and (max-width: 849px) {
+	#bola {
+		max-width: 50px;
+		max-height: 50px;
+
+		min-width: 50px;
+		min-height: 50px;
+	}
+}
 #bolita {
 	font-size: 45px;
 	font-weight: bold;
 }
-
+@media screen and (max-width: 849px) {
+	#bolita {
+		font-size: 30px;
+	}
+}
 
 
 #divBoton {
@@ -324,11 +366,12 @@ button:hover {
 
 /*-------ELEMENTOS DINAMICOS-------*/
 .divCarton {
-	width: 60vw;
+	width: 70vw;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	
 	
 }
 .carton {
@@ -339,7 +382,6 @@ button:hover {
 	border: 4px solid rgb(17, 145, 23);
 	border-radius: 10px;	
 	overflow-y: hidden;
-	
 }
 
 #fila1 {
@@ -381,4 +423,48 @@ button:hover {
 	background-color: white;
 	color: rgb(0, 0, 0);
 	text-shadow: 1px 1px;
+}
+
+@media screen and (max-width: 900px) {
+	.cuadrado {
+		height: 40px;
+		width: 40px;
+	}
+
+}
+@media screen and (min-width: 1000px) {
+	.cuadrado {
+		height: 55px;
+		width: 55px;
+	}
+	
+}
+@media screen and (max-width: 873px) {
+	
+	.carton {
+		height: 300px;
+		width: 500px;
+	}
+	.recuadro {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 673px) {
+	.carton {
+		height: 300px;
+		width: 400px;
+	}
+	.recuadro {
+		font-size: 25px;
+	}
+}
+@media screen and (max-width: 473px) {
+	.carton {
+		height: 290px;
+		width: 250px;
+	}
+	.recuadro {
+		font-size: 20px;
+	}
 }
