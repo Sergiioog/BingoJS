@@ -271,7 +271,8 @@
             function sacaBolas(arrayNumCarton) {
                 let numerosRepetidos = [];
                 let contadorBolas = 0;
-                let casillaMarcada = 0; // contador de casillas para ver si han salido todas y decir bingo
+                let casillaMarcada = 0; // Reiniciar el contador en cada iteración
+
                 function generarNumero() {
                     let numeroRandom;
             
@@ -281,30 +282,32 @@
                         if (numerosRepetidos.includes(numeroRandom)) {
                             console.error(`${numeroRandom} repetido`);
                         }
-            
-                        casillaMarcada = 0; // Reiniciar el contador en cada iteración
-            
+        
                         for (let i = 0; i < arrayNumCarton.length; i++) {
                             if (numeroRandom === arrayNumCarton[i]) {
                                 let divCasilla = document.getElementById(`pos${i + 1}`);
                                 if (divCasilla) {
                                     divCasilla.style.backgroundColor = 'green';
-                                    casillaMarcada++;
+                                    if(!numerosRepetidos.includes(numeroRandom)){
+                                        casillaMarcada++;
+                                        console.log(`Valor de casilla: ${casillaMarcada}`);
+                                        if (casillaMarcada === 14 ) {
+                                            bingo.style.display = "block";
+                                        }
+                                    }
+                                  
+                                    break; // Salir del bucle al encontrar una coincidencia
                                 }
                             }
                         }
-            
-                        // Verificar después de recorrer todas las casillas
-                        if (casillaMarcada === arrayNumCarton.length) {
-                            console.log("Bingo!");
-                            bingo.style.display = 'block';
-                        }
-            
+                        
+
                     } while (numerosRepetidos.includes(numeroRandom));
+
+                    
             
                     numerosRepetidos.push(numeroRandom);
                     contadorBolas++;
-                    console.log(numeroRandom);
                     asignaNumero(numeroRandom);
             
                     if (contadorBolas < 91) {
@@ -319,7 +322,6 @@
             
             
             function asignaNumero(numero) {
-                console.log("Número asignado:", numero);
             
                 let bolita = document.querySelector('#bolita');
                 let divCasilla = document.getElementById(numero.toString());
