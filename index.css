@@ -283,6 +283,21 @@ button:hover {
 	flex-wrap: wrap;
 	margin-top: 20px;
 }
+#bingo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    z-index: 1;
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*--------MAIN---------*/
 
 
