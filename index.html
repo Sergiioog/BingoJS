@@ -141,8 +141,8 @@
                
                
            </div>
-           <div id="bingo" style="display: none;">
-            <p>FELICIDADES HAS HECHO BINGO</p>
+           <div id="bingo" style="display:none;">
+                <p>FELICIDADES HAS HECHO BINGO</p>
             </div>
            <div class="divCartones">
                 <div id="divBoton">
@@ -254,7 +254,7 @@
                     // Elimina el último cartón creado
                     divCartones.removeChild(divCartones.lastChild);
                     contadorCartones--; // "Resetea" el contador
-            
+                    bolita.innerText = '';
                     // Resetear el color de las casillas del tablero //PARAR EL RELOJ
                     for (let i = 0; i <= 90; i++) {
                         let divNumero = document.getElementById(i.toString());
@@ -275,7 +275,8 @@
 
                 function generarNumero() {
                     let numeroRandom;
-            
+                    
+    
                     do {
                         numeroRandom = Math.floor(Math.random() * 91);
             
@@ -322,7 +323,7 @@
             
             
             function asignaNumero(numero) {
-            
+                
                 let bolita = document.querySelector('#bolita');
                 let divCasilla = document.getElementById(numero.toString());
                 if (divCasilla) {
@@ -331,88 +332,10 @@
                     divCasilla.style.backgroundColor = 'green';
                 }
             }
+           
             
-            
-
-
-
-
-
-
-
-            /*Función que saca las bolas*/
-            /*
-            function numero() {
-                // Inicializamos el número antes del setInterval para evitar repeticiones inmediatas
-                let numeroRandom = generarNumeroUnico(0, 90, []);
-                
-                
-                setInterval(function() {
-                    // Generamos un nuevo número aleatorio único en cada intervalo
-                    numeroRandom = generarNumeroUnico(0, 90, []);
-                    bolaActual.textContent = numeroRandom;
-                }, 1800);
-            }
-            
-
-
-            // Función para generar un número único en un rango
-            function generarNumeroUnico(min, max, numerosUsados, contadorCartones) {
-                let numero;
-                let numerosRepes = [];
-
-                do {
-                    numero = Math.floor(Math.random() * (max - min + 1)) + min;
-                    console.log(numero)
-                    numerosRepes.push(numero);
-                    let divNumero = document.getElementById(numero.toString());
-                    if (divNumero) {
-                        divNumero.style.backgroundColor = 'green';
-                    }
-                    bolita.innerText += numero + "\n";
-                } while(numerosRepes!= numero);
-                    
-                */
-                
-                
-                /*do {
-
-                    numero = Math.floor(Math.random() * (max - min + 1)) + min;
-                    for (let i = 0; i < numerosRepes.length; i++) {
-                        if (numerosRepes[i] == numero) {
-                            numerosRepes.push(numero);
-                        }
-                        generarNumeroUnico(min, max, numerosUsados, contadorCartones);
-                    }
-                    
-                } while (numerosUsados.includes(numero));
-
-                numerosUsados.push(numero);*/
-
-                
-                /*numerosRepes.push(numero);
-                let divNumero = document.getElementById(numero.toString());
-                if (divNumero) {
-                    divNumero.style.backgroundColor = 'green';
-                }
-                bolita.innerText += numero + "\n";
-                console.log(numero);
-              
-                return numero;
-            }*/
-            
-            
-
-
-
-
-
-
-            // Llamamos a la función numero para que empiece a generar números aleatorios
-
         
-
-              
+      
                 
             
                 

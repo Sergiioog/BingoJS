@@ -288,15 +288,34 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid rgb(17, 145, 23);
+    border-radius: 10px;
+    padding: 30px;
     z-index: 1;
-    height: 300px;
-    width: 400px;
+    height: auto;
+    width: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 2px red;
+    color: rgb(218, 6, 6);
+    text-shadow: 1px 1px rgb(114, 57, 57);
 }
+
+#bingo p {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center; /* Alinea el texto al centro */
+    margin: 0; /* Asegura que no haya espacio extra alrededor del párrafo */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
 
 /*--------MAIN---------*/
 
